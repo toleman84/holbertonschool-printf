@@ -14,13 +14,14 @@ int _printf(const char *format, ...)
 	unsigned int j = 0;
 
 	va_list ap;
+
 	va_start(ap, format);
 
 	while (format && format[j])
 		j++;
 	while (format && format[i])
 	{
-		switch(format[i])
+		switch (format[i])
 		{
 			case ('c'):
 				*tole = (va_arg(ap, int));
