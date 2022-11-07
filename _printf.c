@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	char *tole;
+	char *tole = NULL;
 	unsigned int i = 0;
 	unsigned int j = 0;
 
@@ -23,22 +23,19 @@ int _printf(const char *format, ...)
 		switch(format[i])
 		{
 			case ('c'):
-				*tole = _putchar(va_arg(ap, int));
+				*tole = (va_arg(ap, int));
 			break;
 
 			case ('s'):
-				*tole = _puts(va_arg(ap, char *));
+				tole = (va_arg(ap, char *));
 			break;
 
-			case ('%'):
-				*tole = _puts(format);
-
 			case ('d'):
-				*tole = _putchar(va_arg(ap, int));
+				*tole = (va_arg(ap, int));
 			break;
 
 			case ('i'):
-				*tole = _putchar(va_arg(ap, int));
+				*tole = (va_arg(ap, int));
 			break;
 		}
 		i++;
