@@ -53,12 +53,11 @@ int _printf(const char *format, ...)
 					}
 					break;
 				}
-				case '%':
-					putchar('%');
-					count += 1;
-					break;
 				case '\0':
 					exit(0);
+				default:
+					putchar(*format);
+					count += 1;
 			}
 			state = 0;
 		}
