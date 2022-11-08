@@ -4,6 +4,6 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
-void my_printf(const char *format, va_list args);
+int my_printf(const char *format, ...);
 
 #endif

@@ -10,66 +10,61 @@
  *
  */
 
-void my_printf(const char *format, va_list args)
+int _printf(const char *format, ...)
 {
 	int state = 0;
-
+	int count = 0;
+	va_list args;
+	va_start(args, format);
 	while (*format)
 	{
 		if (state == 0)
 		{
 			if (*format == '%')
+			{
 				state = 1;
+			}
 			else
+			{
 				putchar(*format);
+				count += 1;
+			}
 		}
 		else if (state == 1)
 		{
-			switch (*format)
+			switch (*++format)
 			{
 				case 'c':
 				{
 					char ch = va_arg(args, int);
+				
 					putchar(ch);
+					count += 1;
 					break;
 				}
 				case 's':
 				{
 					const char *s = va_arg(args, const char *);
+
 					while (*s)
 					{
 						putchar(*s++);
+						count += 1;
 					}
 					break;
 				}
 				case '%':
+					
 					putchar('%');
+					count += 1;
 					break;
 				case '\0':
-					exit (0);
+					exit(0);
 			}
 			state = 0;
 		}
 		format++;
 	}
-}
-
-/**
- * _printf - Short description.
- * @format: first member.
- *
- * Return: Always 0 (Success)
- */
-
-int _printf(const char *format, ...)
-{
-	va_list args;
-
-	va_start(args, format);
-
-	my_printf(format, args);
-
 	va_end(args);
-	return (0);
+	return (count);
 }
-

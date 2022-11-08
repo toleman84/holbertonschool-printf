@@ -81,7 +81,6 @@ void number_to_string(int64_t number, int base, char *buffer)
 
 void my_printf(const char *format, va_list args)
 {
-	int state = 0;
 	int i;
 	int ctr;
 
@@ -132,7 +131,6 @@ void my_printf(const char *format, va_list args)
 				default:
 					putchar('%'), putchar(format[i]), ctr += 2;
 			}
-			state = 0;
 		}
 		format++;
 	}
@@ -160,17 +158,15 @@ int _printf(const char *format, ...)
 int main(void)
 {
 
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
+	int len;
+	int len2;
 
 	_printf("print a character %c\n", 'H');
 	_printf("print a string %s\n", "Hello world");
 	_printf("print an interger %d\n", 10);
 	_printf("print a neg interger %d\n", -10);
 	_printf("print a zero interger %d\n", 0);
-	printf("---");
+
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 
