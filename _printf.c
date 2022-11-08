@@ -12,7 +12,6 @@
 void my_printf(const char *format, va_list args)
 {
 	int state = 0;
-	int i;
 	while (*format)
 	{
 		if (state == 0)
