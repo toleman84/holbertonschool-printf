@@ -22,10 +22,7 @@ int _printf(const char *format, ...)
 			if (*format == '%')
 				state = 1;
 			else
-			{
-				putchar(*format);
-				count += 1;
-			}
+				putchar(*format), count += 1;
 		}
 		else if (state == 1)
 		{
@@ -35,8 +32,7 @@ int _printf(const char *format, ...)
 				{
 					char ch = (char)va_arg(args, int);
 
-					putchar(ch);
-					count += 1;
+					putchar(ch), count += 1;
 					break;
 				}
 				case 's':
@@ -47,15 +43,12 @@ int _printf(const char *format, ...)
 						s = "(null)";
 					for (i = 0; s[i]; i++)
 					{
-					putchar(s[i]);
-					count += 1;
+					putchar(s[i]), count += 1;
 					}
 					break;
 				}
 				default:
-					putchar('%');
-					putchar(*format);
-					count += 1;
+					putchar(*format), count += 1;
 			}
 			state = 0;
 		}
