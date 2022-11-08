@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * my_printf - Short description.
@@ -27,23 +28,25 @@ void my_printf(const char *format, va_list args)
 			switch (*format)
 			{
 				case 'c':
-
 				{
 					char ch = va_arg(args, int);
-
 					putchar(ch);
 					break;
 				}
 				case 's':
 				{
 					const char *s = va_arg(args, const char *);
-
 					while (*s)
 					{
 						putchar(*s++);
 					}
 					break;
 				}
+				case '%':
+					putchar('%');
+					break;
+				case '\0':
+					exit (0);
 			}
 			state = 0;
 		}
@@ -67,6 +70,24 @@ int _printf(const char *format, ...)
 	my_printf(format, args);
 
 	va_end(args);
+	return (0);
+}
+
+int main(void)
+{
+	int len;
+	int len2;
+
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
 	return (0);
 }
 

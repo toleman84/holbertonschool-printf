@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 /**
  * unsigned_number_to_string - Short description.
@@ -82,18 +83,19 @@ void my_printf(const char *format, va_list args)
 {
 	int state = 0;
 	int i;
-	while (*format)
+	int ctr;
+
+	for (i = 0; format[i] != 0; i++)
 	{
-		if (state == 0)
+		if (format[i] == '%' && format[i + 1] == '%')
 		{
-			if (*format == '%')
-				state = 1;
-			else
-				putchar(*format);
+			i++;
+			putchar(format[i]);
+			ctr++;
 		}
-		else if (state == 1)
+		else if (format[i] == '%' && format[i + 1] != '%')
 		{
-			switch (*format)
+			switch (format[++i])
 			{
 				case 'c':
 				{
@@ -103,10 +105,10 @@ void my_printf(const char *format, va_list args)
 				}
 				case 's':
 				{
-					const char *s = va_arg(args, const char *);
-					while (*s)
+					char *str = va_arg(args, char *);
+					for (i = 0; str[i]; i++)
 					{
-						putchar(*s++);
+						putchar(str[i]);
 					}
 					break;
 				}
@@ -122,6 +124,13 @@ void my_printf(const char *format, va_list args)
 					}
 					break;
 				}
+				case '%':
+					putchar('%'), ctr++;
+					break;
+				case '\0':
+					exit (0);
+				default:
+					putchar('%'), putchar(format[i]), ctr += 2;
 			}
 			state = 0;
 		}
@@ -150,11 +159,20 @@ int _printf(const char *format, ...)
 
 int main(void)
 {
+
+    int len;
+    int len2;
+    unsigned int ui;
+    void *addr;
+
 	_printf("print a character %c\n", 'H');
 	_printf("print a string %s\n", "Hello world");
 	_printf("print an interger %d\n", 10);
 	_printf("print a neg interger %d\n", -10);
 	_printf("print a zero interger %d\n", 0);
+	printf("---");
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
 
 	return (0);
 }
