@@ -9,10 +9,9 @@
 
 int _printf(const char *format, ...)
 {
-	int state = 0;
-	int count = 0;
-	int i;
+	int state = 0, count = 0, i;
 	va_list args;
+
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
@@ -53,8 +52,6 @@ int _printf(const char *format, ...)
 					}
 					break;
 				}
-				case '\0':
-					exit(0);
 				default:
 					putchar(*format);
 					count += 1;
