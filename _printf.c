@@ -53,6 +53,7 @@ int _printf(const char *format, ...)
 					break;
 				}
 				default:
+					putchar('%');
 					putchar(*format);
 					count += 1;
 			}
