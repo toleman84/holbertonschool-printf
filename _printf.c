@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	int i;
 	va_list args;
+
 	va_start(args, format);
 	while (*format)
 	{
@@ -33,6 +34,7 @@ int _printf(const char *format, ...)
 				case 'c':
 				{
 					char ch = (char)va_arg(args, int);
+
 					putchar(ch);
 					count += 1;
 					break;
@@ -40,6 +42,7 @@ int _printf(const char *format, ...)
 				case 's':
 				{
 					char *s = va_arg(args, char *);
+
 					if (s == NULL)
 						s = "(null)";
 					for (i = 0; s[i]; i++)
