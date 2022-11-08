@@ -1,19 +1,17 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdlib.h>
 
 /**
- * my_printf - Short description.
+ * _printf - Short description.
  * @format: forst member.
- * @args: second member.
  *
+ * Return: always 0 (Success)
  */
 
 int _printf(const char *format, ...)
 {
 	int state = 0;
 	int count = 0;
+	int i;
 	va_list args;
 	va_start(args, format);
 	while (*format)
@@ -21,9 +19,7 @@ int _printf(const char *format, ...)
 		if (state == 0)
 		{
 			if (*format == '%')
-			{
 				state = 1;
-			}
 			else
 			{
 				putchar(*format);
@@ -32,29 +28,28 @@ int _printf(const char *format, ...)
 		}
 		else if (state == 1)
 		{
-			switch (*++format)
+			switch (*format)
 			{
 				case 'c':
 				{
-					char ch = va_arg(args, int);
-				
+					char ch = (char)va_arg(args, int);
 					putchar(ch);
 					count += 1;
 					break;
 				}
 				case 's':
 				{
-					const char *s = va_arg(args, const char *);
-
-					while (*s)
+					char *s = va_arg(args, char *);
+					if (s == NULL)
+						s = "(null)";
+					for (i = 0; s[i]; i++)
 					{
-						putchar(*s++);
-						count += 1;
+					putchar(s[i]);
+					count += 1;
 					}
 					break;
 				}
 				case '%':
-					
 					putchar('%');
 					count += 1;
 					break;
@@ -68,3 +63,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
