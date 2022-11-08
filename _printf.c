@@ -1,6 +1,6 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
-#include <stdint.h>
 
 /**
  * my_printf - Short description.
@@ -63,17 +63,6 @@ int _printf(const char *format, ...)
 	my_printf(format, args);
 
 	va_end(args);
-	return (0);
-}
-
-int main(void)
-{
-	_printf("print a character %c\n", 'H');
-	_printf("print a string %s\n", "Hello world");
-	_printf("print an interger %d\n", 10);
-	_printf("print a neg interger %d\n", -10);
-	_printf("print a zero interger %d\n", 0);
-
 	return (0);
 }
 
