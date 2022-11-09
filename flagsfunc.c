@@ -3,7 +3,7 @@
 /**
  * print_str - Function that print a string.
  * @ap: The arguments.
- *
+ * 
  * Return: Always 0 (Success)
  */
 

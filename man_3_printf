@@ -20,5 +20,5 @@ useradd(8), passwd(5), nuseradd.debian(8)
 .SH BUGS
 No known bugs.
 
-.SH AUTHOR
-Gustavo Ponce Marsiglia
+.SH AUTHORS
+Gustavo Ponce Marsiglia and Andrés Maciel
