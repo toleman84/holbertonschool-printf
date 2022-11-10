@@ -25,12 +25,17 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] == '%')
 			{
-				i++;
-				f = printflags(format[i]);
-				if (f)
+				if (format[i + 1] != '\0')
 				{
-					count += f(ap);
+					i++;
+					f = printflags(format[i]);
+					if (f)
+					{
+						count += f(ap);
+					}
 				}
+				else
+					return (-1);
 			}
 			else
 			{

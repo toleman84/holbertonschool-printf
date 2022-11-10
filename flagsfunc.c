@@ -36,6 +36,7 @@ int print_str(va_list ap)
 
 int print_perc(__attribute__((unused))va_list ap)
 {
+
 	return (_putchar('%'));
 }
 

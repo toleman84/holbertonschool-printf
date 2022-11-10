@@ -20,7 +20,7 @@ int (*printflags(const char format))(va_list)
 
 	if (format)
 	{
-		for (j = 0; j < 6; j++)
+		for (j = 0; j < 5; j++)
 		{
 			if (format == func[j].c)
 			{
