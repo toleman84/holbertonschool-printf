@@ -40,7 +40,7 @@ int (*printflags(const char format))(va_list)
  * border_case - Function that return 2
  * @ap: The arguments.
  *
- * Return: 2.
+ * Return: 2
  */
 
 int border_case(__attribute__((unused))va_list ap)
