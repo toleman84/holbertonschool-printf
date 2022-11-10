@@ -13,14 +13,15 @@ int (*printflags(const char format))(va_list)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_perc},
-		/**{'i'}, print_int*/
+		{'d', val_n},
+		{'i', val_n},
 		{'\0', NULL}
 	};
 	int j;
 
 	if (format)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; j < 7; j++)
 		{
 			if (format == func[j].c)
 			{
