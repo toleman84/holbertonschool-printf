@@ -3,7 +3,7 @@
 /**
  * print_str - Function that print a string.
  * @ap: The arguments.
- * 
+ *
  * Return: Always 0 (Success)
  */
 
@@ -52,20 +52,4 @@ int print_char(va_list ap)
 
 	return (write(1, &c, 1));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
