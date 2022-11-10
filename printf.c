@@ -2,7 +2,7 @@
 
 /**
  * _printf - Function that mimics the function defined by stdio.h printf.
- * @format: The arguments passed to the function.
+ * @format: The arguments passed to the function
  *
  * Return: Success
  */
