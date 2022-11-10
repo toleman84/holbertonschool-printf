@@ -1,10 +1,14 @@
-Readme File 
+Readme File
 
-(Description, 
-compilation/instalation, 
-Requirements, 
-examples, 
-testing)
+Description
+
+Compilation / Instalation
+
+Requirements
+
+Examples
+
+Testing
 
 Authors File
 Andrés Maciel and Gustavo Ponce Marsiglia
