@@ -59,20 +59,20 @@ int print_char(va_list ap)
 
 /**
  * print_int - Function that print a interger
- * @ap: The arguments
+ * @n: The arguments
  *
  * Return: Always 0 (Success)
  */
 
 int print_int(int n)
 {
-
 	if (n < 0)
 	{
 		_putchar('-');
-		n = n -1;
+		n = n * - 1;
 	}
-	if (n > 9) print_int(n / 10);
+	if (n > 9)
+	print_int(n / 10);
 	{
 		_putchar('0' + (n % 10));
 	}
