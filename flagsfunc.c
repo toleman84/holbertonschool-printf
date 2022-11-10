@@ -42,7 +42,7 @@ int print_perc(__attribute__((unused))va_list ap)
 
 /**
  * print_char - Function that prints a single character.
- * @ap: The arguments
+ * @ap: The arguments.
  *
  * Return: Always 0 (Success)
  */
