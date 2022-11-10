@@ -19,24 +19,28 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
-	for (i = 0; format[i]; i++)
+	if (format)
 	{
-		if (format[i] == '%')
+		for (i = 0; format[i]; i++)
 		{
-			i++;
-			f = printflags(format[i]);
-			if (f)
+			if (format[i] == '%')
 			{
-				count += f(ap);
+				i++;
+				f = printflags(format[i]);
+				if (f)
+				{
+					count += f(ap);
+				}
+			}
+			else
+			{
+				count += _putchar(format[i]);
 			}
 		}
-		else
-		{
-			count += _putchar(format[i]);
-		}
 	}
+	else
+		count--;
 	va_end(ap);
 	return (count);
-
 }
 

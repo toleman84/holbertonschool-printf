@@ -15,6 +15,8 @@ int print_str(va_list ap);
 int print_perc(va_list ap);
 int print_char(va_list ap);
 
+int border_case(__attribute__((unused))va_list ap);
+
 /**
  * struct percentage - Short description.
  * @c: first member.
