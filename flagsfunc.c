@@ -1,8 +1,5 @@
 #include "main.h"
 
-int print_int(int n);
-int val_n(va_list ap);
-
 /**
  * print_str - Function that print a string.
  * @ap: The arguments.
@@ -64,21 +61,15 @@ int print_char(va_list ap)
  * Return: Always 0 (Success)
  */
 
-int print_int(int n)
+int print_int(unsigned int n)
 {
 	int count = 0;
 
-	if (n < 0)
-	{
-		count += _putchar('-');
-		n = n * -1;
-	}
-
-	if (n > 0)
-	{
+	if (n > 9)
 		count += print_int(n / 10);
-		count += _putchar((n % 10) + '0');
-	}
+	
+	count += _putchar((n % 10) + '0');
+	
 	return (count);
 }
 
@@ -92,7 +83,11 @@ int print_int(int n)
 int val_n(va_list ap)
 {
 	int n = va_arg(ap, int);
+	size_t num, count = 0;
 
-	return (print_int(n));
+	num = n < 0 ? -n : n;
+	count = n < 0 ? _putchar('-') : 0;
+
+	return (count + print_int(num));
 }
 

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
 int _putchar(char c);
@@ -14,7 +15,7 @@ int (*printflags(const char format))(va_list);
 int print_str(va_list ap);
 int print_perc(va_list ap);
 int print_char(va_list ap);
-int print_int(int n);
+int print_int(unsigned int n);
 
 int border_case(__attribute__((unused))va_list ap);
 
