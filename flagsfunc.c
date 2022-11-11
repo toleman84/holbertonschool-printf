@@ -66,17 +66,20 @@ int print_char(va_list ap)
 
 int print_int(int n)
 {
+	int count = 0;
+
 	if (n < 0)
 	{
-		_putchar('-');
-		n = n * - 1;
+		count += _putchar('-');
+		n = n * -1;
 	}
-	if (n > 9)
-	print_int(n / 10);
+
+	if (n > 0)
 	{
-		_putchar('0' + (n % 10));
+		count += print_int(n / 10);
+		count += _putchar((n % 10) + '0');
 	}
-	return (0);
+	return (count);
 }
 
 /**
