@@ -55,8 +55,8 @@ int print_char(va_list ap)
 }
 
 /**
- * print_int - Function that print a interger
- * @n: The arguments
+ * print_int - Function that print a interger.
+ * @n: The arguments.
  *
  * Return: Always 0 (Success)
  */
@@ -75,7 +75,7 @@ int print_int(unsigned int n)
 
 /**
  * val_n - Short description.
- * @ap: The arguments
+ * @ap: The arguments.
  *
  * Return: Always 0 (Success)
  */
