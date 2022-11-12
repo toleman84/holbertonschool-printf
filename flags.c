@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * printflags - Function that contains the printf flags
- * @format: String that printflags takes
+ * printflags - Function that contains the printf flags.
+ * @format: String that printflags takes.
  *
  * Return: Always 0 (Success)
  */
@@ -38,7 +38,7 @@ int (*printflags(const char format))(va_list)
 }
 
 /**
- * border_case - Function that return 2
+ * border_case - Function that return 2.
  * @ap: The arguments.
  *
  * Return: 2
