@@ -23,8 +23,8 @@ int val_n(va_list ap);
 
 /**
  * struct percentage - Short description.
- * @c: first member.
- * @f: second member.
+ * @c: first member
+ * @f: second member
  */
 
 typedef struct percentage
