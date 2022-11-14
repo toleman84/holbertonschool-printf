@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * printflags - Function that contains the printf flags.
+ * printflags - Function that recieves the arguments of _printf
+ * and return the corresponding function.
  * @format: String that printflags takes.
  *
  * Return: Always 0 (Success)
